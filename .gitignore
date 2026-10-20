@@ -1,0 +1,15 @@
+
+# Build files
+bin/
+obj/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# IDE settings
+.vscode/
+
+# Local configuration and secrets
+appsettings.Development.json

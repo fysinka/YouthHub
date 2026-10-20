@@ -1,0 +1,55 @@
+
+@model IEnumerable<YouthHub.Models.Category>
+
+@{
+    ViewData["Title"] = "Категории";
+}
+
+<div class="container yh-categories-page">
+    <div class="yh-page-heading">
+        <div>
+            <p class="yh-eyebrow">YOUTHHUB · ОРГАНИЗАЦИЯ</p>
+            <h1>Категории</h1>
+            <p class="yh-page-description">
+                Разгледай различните направления на младежките инициативи.
+            </p>
+        </div>
+
+        <a asp-action="Create" class="btn btn-primary">
+            + Добави категория
+        </a>
+    </div>
+
+    @if (!Model.Any())
+    {
+        <div class="yh-initiatives-empty">
+            <h2>Все още няма категории</h2>
+            <p>Добави категории, за да организираш инициативите по направления.</p>
+
+            <a asp-action="Create" class="btn btn-primary">
+                Добави първата категория
+            </a>
+        </div>
+    }
+    else
+    {
+        <div class="row g-4">
+            @foreach (var category in Model)
+            {
+                <div class="col-md-6 col-lg-4">
+                    <article class="yh-category-card">
+                        <span class="yh-category-label">КАТЕГОРИЯ</span>
+
+                        <h2>@category.Name</h2>
+
+                        <p>
+                            @(string.IsNullOrWhiteSpace(category.Description)
+                                ? "Няма добавено описание."
+                                : category.Description)
+                        </p>
+                    </article>
+                </div>
+            }
+        </div>
+    }
+</div>

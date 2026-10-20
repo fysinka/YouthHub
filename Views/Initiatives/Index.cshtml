@@ -1,0 +1,97 @@
+
+@model IEnumerable<YouthHub.Models.Initiative>
+
+@{
+    ViewData["Title"] = "Младежки инициативи";
+}
+
+<div class="container yh-initiatives-page">
+    <div class="yh-page-heading">
+        <div>
+            <p class="yh-eyebrow">YOUTHHUB · ВЪЗМОЖНОСТИ</p>
+            <h1>Младежки инициативи</h1>
+            <p class="yh-page-description">
+                Открий следващата кауза, в която да се включиш.
+            </p>
+        </div>
+
+        <a asp-action="Create" class="btn btn-primary">
+            + Нова инициатива
+        </a>
+    </div>
+
+    @if (Model.Any())
+    {
+        <div class="row g-4">
+            @foreach (var initiative in Model)
+            {
+                <div class="col-md-6">
+                    <article class="yh-initiative-card">
+                        <div class="yh-initiative-content">
+                            <span class="yh-initiative-category">
+                                @(initiative.Category?.Name ?? "Без категория")
+                            </span>
+
+                            <h2>@initiative.Title</h2>
+
+                            <p class="yh-initiative-description">
+                                @initiative.Description
+                            </p>
+
+                            <div class="yh-initiative-details">
+                                <p>
+                                    <strong>Място</strong>
+                                    <span>@initiative.Location</span>
+                                </p>
+
+                                <p>
+                                    <strong>Дата</strong>
+                                    <span>@initiative.EventDate.ToString("dd.MM.yyyy")</span>
+                                </p>
+
+                                <p>
+                                    <strong>Организатор</strong>
+                                    <span>@(string.IsNullOrWhiteSpace(initiative.Organizer)
+                                        ? "Не е посочен"
+                                        : initiative.Organizer)</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="yh-initiative-actions">
+                            <a asp-action="Edit"
+                               asp-route-id="@initiative.Id"
+                               class="btn btn-outline-success">
+                                Редактирай
+                            </a>
+
+                            <a asp-action="Delete"
+                               asp-route-id="@initiative.Id"
+                               class="btn btn-outline-danger">
+                                Изтрий
+                            </a>
+
+                            <a asp-controller="Applications"
+                               asp-action="Create"
+                               asp-route-initiativeId="@initiative.Id"
+                               class="btn btn-primary">
+                                Кандидатствай
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="yh-initiatives-empty">
+            <h2>Все още няма инициативи</h2>
+            <p>Създай първата инициатива и сподели идеята си.</p>
+
+            <a asp-action="Create" class="btn btn-primary">
+                Създай инициатива
+            </a>
+        </div>
+    }
+</div>

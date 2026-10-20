@@ -1,0 +1,70 @@
+
+@model IEnumerable<YouthHub.Models.Application>
+
+@{
+    ViewData["Title"] = "Кандидатствания";
+}
+
+<div class="container yh-applications-page">
+    <div class="yh-page-heading">
+        <div>
+            <p class="yh-eyebrow">YOUTHHUB · УЧАСТИЕ</p>
+            <h1>Кандидатствания</h1>
+            <p class="yh-page-description">
+                Списък с подадените кандидатури за младежки инициативи.
+            </p>
+        </div>
+    </div>
+
+    @if (!Model.Any())
+    {
+        <div class="yh-initiatives-empty">
+            <h2>Все още няма кандидатури</h2>
+            <p>Когато някой кандидатства за инициатива, информацията ще се появи тук.</p>
+
+            <a asp-controller="Initiatives"
+               asp-action="Index"
+               class="btn btn-primary">
+                Разгледай инициативите
+            </a>
+        </div>
+    }
+    else
+    {
+        <div class="yh-applications-table-wrapper">
+            <div class="table-responsive">
+                <table class="table yh-applications-table align-middle">
+                    <thead>
+                        <tr>
+                            <th>Кандидат</th>
+                            <th>Имейл</th>
+                            <th>Инициатива</th>
+                            <th>Дата на кандидатстване</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var application in Model)
+                        {
+                            <tr>
+                                <td class="yh-applicant-name">
+                                    @application.ApplicantName
+                                </td>
+                                <td>
+                                    <a href="mailto:@application.Email">
+                                        @application.Email
+                                    </a>
+                                </td>
+                                <td>
+                                    @(application.Initiative?.Title ?? "Изтрита инициатива")
+                                </td>
+                                <td class="yh-application-date">
+                                    @application.AppliedOn.ToLocalTime().ToString("dd.MM.yyyy HH:mm")
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    }
+</div>

@@ -1,0 +1,82 @@
+﻿
+@{
+    ViewData["Title"] = "Начало";
+}
+
+<section class="yh-home-intro">
+    <div class="container">
+        <p class="yh-eyebrow">YOUTHHUB · МЛАДЕЖКИ ИНИЦИАТИВИ</p>
+
+        <h1>Идеите ти заслужават<br />да се случат.</h1>
+
+        <p class="yh-intro-text">
+            Откривай събития, включвай се в доброволчески каузи
+            и създавай инициативи заедно с други млади хора.
+        </p>
+
+        <div class="yh-home-actions">
+            <a asp-controller="Initiatives"
+               asp-action="Index"
+               class="btn btn-primary">
+                Разгледай инициативите
+            </a>
+
+            <a asp-controller="Initiatives"
+               asp-action="Create"
+               class="yh-text-link">
+                Предложи инициатива →
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="container yh-home-features">
+    <div class="yh-features-heading">
+        <h2>Какво можеш да откриеш?</h2>
+        <p>Възможности да участваш, да учиш и да срещаш хора.</p>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="yh-simple-card">
+                <span class="yh-card-number">01</span>
+                <h3>Доброволчество</h3>
+                <p>
+                    Включи се в каузи, които имат значение
+                    за хората и мястото, в което живееш.
+                </p>
+                <a asp-controller="Initiatives" asp-action="Index">
+                    Намери инициатива →
+                </a>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="yh-simple-card">
+                <span class="yh-card-number">02</span>
+                <h3>Събития и обучения</h3>
+                <p>
+                    Откривай нови интереси, развивай уменията си
+                    и опитвай неща извън училище.
+                </p>
+                <a asp-controller="Initiatives" asp-action="Index">
+                    Виж възможностите →
+                </a>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="yh-simple-card">
+                <span class="yh-card-number">03</span>
+                <h3>Твои идеи</h3>
+                <p>
+                    Имаш идея за нещо полезно? Направи първата
+                    крачка и я сподели с общността.
+                </p>
+                <a asp-controller="Initiatives" asp-action="Create">
+                    Създай инициатива →
+                </a>
+            </div>
+        </div>
+    </div>
+</section>

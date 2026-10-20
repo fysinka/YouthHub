@@ -1,0 +1,26 @@
+
+@model YouthHub.Models.Initiative
+
+@{
+    ViewData["Title"] = "Изтриване на инициатива";
+}
+
+<div class="container py-5">
+    <h1 class="mb-3">Изтриване на инициатива</h1>
+
+    <p>Сигурна ли си, че искаш да изтриеш тази инициатива?</p>
+
+    <div class="card shadow-sm mb-4">
+        <div class="card-body">
+            <h2 class="h4">@Model.Title</h2>
+            <p>@Model.Description</p>
+            <p><strong>Място:</strong> @Model.Location</p>
+            <p><strong>Дата:</strong> @Model.EventDate.ToString("dd.MM.yyyy")</p>
+        </div>
+    </div>
+
+    <form asp-action="Delete" asp-route-id="@Model.Id" method="post">
+        <button type="submit" class="btn btn-danger">Да, изтрий</button>
+        <a asp-action="Index" class="btn btn-outline-secondary ms-2">Отказ</a>
+    </form>
+</div>

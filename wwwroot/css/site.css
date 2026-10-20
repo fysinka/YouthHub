@@ -1,0 +1,575 @@
+
+html {
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+body {
+    margin-bottom: 60px;
+    background: #fff;
+    color: #30283d;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+:root {
+    --yh-primary: #6D28D9;
+    --yh-primary-hover: #5B21B6;
+    --yh-dark: #30283d;
+    --yh-muted: #716b7b;
+    --yh-light: #F5F3FF;
+    --yh-border: #e9e5ef;
+}
+
+/* Typography */
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--yh-dark);
+    font-weight: 700;
+}
+
+a {
+    color: var(--yh-primary);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--yh-primary-hover);
+}
+
+/* Navigation */
+
+.navbar {
+    min-height: 70px;
+    background: #fff;
+    border-bottom: 1px solid var(--yh-border);
+}
+
+.navbar .nav-link {
+    padding: 0.65rem 0.8rem;
+    border-radius: 6px;
+    color: var(--yh-dark);
+    font-weight: 500;
+}
+
+.navbar .nav-link:hover {
+    background: var(--yh-light);
+    color: var(--yh-primary);
+}
+
+.yh-logo-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 9px;
+    background: var(--yh-light);
+    color: var(--yh-primary);
+    font-size: 1.2rem;
+}
+
+.yh-brand-name {
+    color: var(--yh-dark);
+    font-size: 1.35rem;
+    font-weight: 800;
+}
+
+.yh-nav-button {
+    padding: 0.65rem 0.9rem;
+    border-radius: 7px;
+    font-weight: 600;
+}
+
+@media (max-width: 991.98px) {
+    .navbar-nav {
+        align-items: stretch !important;
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+    }
+
+    .yh-nav-button {
+        display: block;
+        margin-top: 0.5rem;
+        text-align: center;
+    }
+}
+
+/* Buttons */
+
+.btn-primary,
+.btn-success {
+    border-color: var(--yh-primary);
+    background: var(--yh-primary);
+    color: #fff;
+}
+
+.btn-primary:hover,
+.btn-success:hover {
+    border-color: var(--yh-primary-hover);
+    background: var(--yh-primary-hover);
+    color: #fff;
+}
+
+.btn-outline-success {
+    border-color: var(--yh-primary);
+    color: var(--yh-primary);
+}
+
+.btn-outline-success:hover {
+    border-color: var(--yh-primary);
+    background: var(--yh-primary);
+    color: #fff;
+}
+
+.btn:focus,
+.btn:active:focus,
+.btn-link.nav-link:focus,
+.form-control:focus,
+.form-check-input:focus,
+.form-select:focus {
+    box-shadow: 0 0 0 0.15rem #fff, 0 0 0 0.25rem #A78BFA;
+}
+
+/* Cards */
+
+.card {
+    overflow: hidden;
+    border: 1px solid var(--yh-border);
+    border-radius: 10px;
+    box-shadow: none;
+}
+
+.card .card-body {
+    padding: 1.5rem;
+}
+
+/* Forms */
+
+.form-control,
+.form-select {
+    padding: 0.7rem 0.85rem;
+    border: 1px solid #D8D2E8;
+    border-radius: 7px;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--yh-primary);
+}
+
+.form-floating > .form-control-plaintext::placeholder,
+.form-floating > .form-control::placeholder {
+    color: var(--bs-secondary-color);
+    text-align: end;
+}
+
+.form-floating > .form-control-plaintext:focus::placeholder,
+.form-floating > .form-control:focus::placeholder {
+    text-align: start;
+}
+
+/* Tables and alerts */
+
+.table-success {
+    --bs-table-bg: var(--yh-light);
+    --bs-table-color: var(--yh-dark);
+}
+
+.alert-info {
+    border-color: #DDD6FE;
+    background: var(--yh-light);
+    color: var(--yh-dark);
+}
+
+/* Homepage */
+
+.yh-home-intro {
+    padding: 4.5rem 0;
+    border-bottom: 1px solid #eee9f5;
+    background: #fff;
+}
+
+.yh-eyebrow {
+    margin-bottom: 1.25rem;
+    color: var(--yh-primary);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.yh-home-intro h1 {
+    max-width: 680px;
+    margin: 0;
+    color: var(--yh-dark);
+    font-size: clamp(2.2rem, 4vw, 3.3rem);
+    font-weight: 750;
+    line-height: 1.2;
+    letter-spacing: -1px;
+}
+
+.yh-intro-text {
+    max-width: 590px;
+    margin: 1.25rem 0 0;
+    color: var(--yh-muted);
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+.yh-home-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    margin-top: 1.75rem;
+}
+
+.yh-home-actions .btn {
+    padding: 0.75rem 1.1rem;
+    border-radius: 7px;
+    font-weight: 600;
+}
+
+.yh-text-link {
+    color: var(--yh-primary);
+    font-weight: 600;
+}
+
+.yh-home-features {
+    padding-top: 3.5rem;
+    padding-bottom: 4.5rem;
+}
+
+.yh-features-heading {
+    margin-bottom: 1.75rem;
+}
+
+.yh-features-heading h2 {
+    margin-bottom: 0.5rem;
+    font-size: 1.65rem;
+}
+
+.yh-features-heading p {
+    margin: 0;
+    color: var(--yh-muted);
+    line-height: 1.7;
+}
+
+.yh-simple-card {
+    height: 100%;
+    padding: 1.4rem;
+    border: 1px solid var(--yh-border);
+    border-radius: 9px;
+    background: #fff;
+}
+
+.yh-card-number {
+    display: block;
+    margin-bottom: 1.25rem;
+    color: #8b5cf6;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.yh-simple-card h3 {
+    margin-bottom: 0.75rem;
+    font-size: 1.15rem;
+}
+
+.yh-simple-card p {
+    margin-bottom: 1.1rem;
+    color: var(--yh-muted);
+    line-height: 1.75;
+}
+
+.yh-simple-card a {
+    color: var(--yh-primary);
+    font-size: 0.92rem;
+    font-weight: 600;
+}
+
+.yh-simple-card a:hover {
+    color: var(--yh-primary-hover);
+}
+
+@media (max-width: 767.98px) {
+    .yh-home-intro {
+        padding: 3rem 0;
+    }
+
+    .yh-home-features {
+        padding-top: 2.75rem;
+        padding-bottom: 3.5rem;
+    }
+}
+
+/* Initiatives page */
+
+.yh-initiatives-page {
+    padding-top: 3.5rem;
+    padding-bottom: 4rem;
+}
+
+.yh-page-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.yh-page-heading h1 {
+    margin-bottom: 0.65rem;
+    font-size: clamp(2rem, 4vw, 2.7rem);
+    letter-spacing: -0.8px;
+}
+
+.yh-page-description {
+    margin: 0;
+    color: var(--yh-muted);
+    line-height: 1.7;
+}
+
+.yh-page-heading > .btn {
+    flex-shrink: 0;
+    margin-bottom: 0.15rem;
+    padding: 0.7rem 1rem;
+    border-radius: 7px;
+}
+
+.yh-initiative-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+    border: 1px solid var(--yh-border);
+    border-radius: 10px;
+    background: #fff;
+}
+
+.yh-initiative-content {
+    flex: 1;
+    padding: 1.5rem;
+}
+
+.yh-initiative-category {
+    display: inline-block;
+    margin-bottom: 1rem;
+    padding: 0.35rem 0.65rem;
+    border-radius: 5px;
+    background: var(--yh-light);
+    color: var(--yh-primary);
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.yh-initiative-content h2 {
+    margin-bottom: 0.85rem;
+    font-size: 1.35rem;
+    line-height: 1.4;
+}
+
+.yh-initiative-description {
+    margin-bottom: 1.5rem;
+    color: var(--yh-muted);
+    line-height: 1.75;
+    overflow-wrap: anywhere;
+    white-space: pre-line;
+}
+
+.yh-initiative-details {
+    padding-top: 1rem;
+    border-top: 1px solid var(--yh-border);
+}
+
+.yh-initiative-details p {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+    font-size: 0.92rem;
+}
+
+.yh-initiative-details p:last-child {
+    margin-bottom: 0;
+}
+
+.yh-initiative-details strong {
+    flex-shrink: 0;
+    color: var(--yh-dark);
+}
+
+.yh-initiative-details span {
+    color: var(--yh-muted);
+    text-align: right;
+    overflow-wrap: anywhere;
+}
+
+.yh-initiative-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    padding: 1rem 1.5rem;
+    border-top: 1px solid var(--yh-border);
+    background: #fdfcff;
+}
+
+.yh-initiative-actions .btn {
+    margin: 0 !important;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+.yh-initiatives-empty {
+    padding: 3rem 1.5rem;
+    border: 1px solid var(--yh-border);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.yh-initiatives-empty h2 {
+    font-size: 1.5rem;
+}
+
+.yh-initiatives-empty p {
+    margin: 0.75rem 0 1.25rem;
+    color: var(--yh-muted);
+}
+
+@media (max-width: 767.98px) {
+    .yh-initiatives-page {
+        padding-top: 2.5rem;
+    }
+
+    .yh-page-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        margin-bottom: 1.75rem;
+    }
+
+    .yh-initiative-actions .btn {
+        flex: 1 1 auto;
+    }
+}
+
+/* Categories page */
+
+.yh-categories-page {
+    padding-top: 3.5rem;
+    padding-bottom: 4rem;
+}
+
+.yh-category-card {
+    height: 100%;
+    padding: 1.5rem;
+    border: 1px solid var(--yh-border);
+    border-radius: 10px;
+    background: #fff;
+}
+
+.yh-category-label {
+    display: inline-block;
+    margin-bottom: 1.25rem;
+    color: var(--yh-primary);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.yh-category-card h2 {
+    margin-bottom: 0.75rem;
+    font-size: 1.3rem;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
+
+.yh-category-card p {
+    margin: 0;
+    color: var(--yh-muted);
+    line-height: 1.75;
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 767.98px) {
+    .yh-categories-page {
+        padding-top: 2.5rem;
+    }
+}
+
+/* Applications page */
+
+.yh-applications-page {
+    padding-top: 3.5rem;
+    padding-bottom: 4rem;
+}
+
+.yh-applications-page .yh-page-heading {
+    margin-bottom: 2rem;
+}
+
+.yh-applications-table-wrapper {
+    overflow: hidden;
+    border: 1px solid var(--yh-border);
+    border-radius: 10px;
+    background: #fff;
+}
+
+.yh-applications-table {
+    margin-bottom: 0;
+    color: var(--yh-dark);
+}
+
+.yh-applications-table thead th {
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid #DDD6FE;
+    background: var(--yh-light);
+    color: var(--yh-dark);
+    font-size: 0.88rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.yh-applications-table tbody td {
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--yh-border);
+    vertical-align: middle;
+}
+
+.yh-applications-table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.yh-applications-table tbody tr:hover td {
+    background: #FCFAFF;
+}
+
+.yh-applications-table .yh-applicant-name {
+    font-weight: 600;
+}
+
+.yh-applications-table td a {
+    overflow-wrap: anywhere;
+}
+
+.yh-application-date {
+    color: var(--yh-muted);
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+@media (max-width: 767.98px) {
+    .yh-applications-page {
+        padding-top: 2.5rem;
+    }
+
+    .yh-applications-table thead th,
+    .yh-applications-table tbody td {
+        padding: 0.85rem;
+    }
+}
