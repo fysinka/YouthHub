@@ -15,7 +15,9 @@ public class InitiativesController : Controller
         _context = context;
     }
 
-    public async Task<IActionResult> Index(string? searchString)
+    public async Task<IActionResult> Index(
+    string? searchString,
+    int? categoryId)
 {
     var initiatives = _context.Initiatives
         .Include(i => i.Category)
@@ -29,11 +31,23 @@ public class InitiativesController : Controller
             i.Location.Contains(searchString));
     }
 
+    if (categoryId.HasValue)
+    {
+        initiatives = initiatives.Where(i =>
+            i.CategoryId == categoryId.Value);
+    }
+
     ViewData["SearchString"] = searchString;
+    ViewData["CategoryId"] = categoryId;
+
+    ViewBag.Categories = new SelectList(
+        await _context.Categories.OrderBy(c => c.Name).ToListAsync(),
+        "Id",
+        "Name",
+        categoryId);
 
     return View(await initiatives.ToListAsync());
 }
-
 public async Task<IActionResult> Create()
 {
     await LoadCategoriesAsync();
