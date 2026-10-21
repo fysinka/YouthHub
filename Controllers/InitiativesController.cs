@@ -15,13 +15,23 @@ public class InitiativesController : Controller
         _context = context;
     }
 
-    public async Task<IActionResult> Index()
+    public async Task<IActionResult> Index(string? searchString)
 {
-    var initiatives = await _context.Initiatives
+    var initiatives = _context.Initiatives
         .Include(i => i.Category)
-        .ToListAsync();
+        .AsQueryable();
 
-    return View(initiatives);
+    if (!string.IsNullOrWhiteSpace(searchString))
+    {
+        initiatives = initiatives.Where(i =>
+            i.Title.Contains(searchString) ||
+            i.Description.Contains(searchString) ||
+            i.Location.Contains(searchString));
+    }
+
+    ViewData["SearchString"] = searchString;
+
+    return View(await initiatives.ToListAsync());
 }
 
 public async Task<IActionResult> Create()

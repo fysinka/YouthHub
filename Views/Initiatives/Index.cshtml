@@ -19,6 +19,23 @@
             + Нова инициатива
         </a>
     </div>
+    <form asp-action="Index" method="get" class="mb-4">
+    <div class="input-group">
+        <input type="text"
+               name="searchString"
+               value="@ViewData["SearchString"]"
+               class="form-control"
+               placeholder="Търси по заглавие, описание или място..." />
+
+        <button type="submit" class="btn btn-primary">
+            Търси
+        </button>
+
+        <a asp-action="Index" class="btn btn-outline-secondary">
+            Изчисти
+        </a>
+    </div>
+</form>
 
     @if (Model.Any())
     {
