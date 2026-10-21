@@ -63,24 +63,22 @@ YouthHub е уеб приложение, разработено с ASP.NET Core 
 
 4. Възстановете зависимостите:
 
-   ```bash
    dotnet restore
-   ```
 
-5. Приложете миграциите към базата данни:
+5. Инсталирайте инструмента за миграции:
 
-   ```bash
+   dotnet tool install --global dotnet-ef --version 9.0.2
+
+6. Приложете миграциите към базата данни:
+
    dotnet ef database update
-   ```
 
-6. Стартирайте приложението:
+7. Стартирайте приложението:
 
-   ```bash
    dotnet run
-   ```
 
-7. Отворете локалния адрес, показан в терминала.
-
+8. Отворете локалния адрес, показан в терминала.
+   
 ## База данни
 
 Приложението използва Entity Framework Core за работа с Microsoft SQL Server. Връзката към базата данни се конфигурира чрез `ConnectionStrings:DefaultConnection` в `appsettings.json`.
