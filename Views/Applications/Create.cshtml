@@ -1,5 +1,5 @@
 
-@model YouthHub.Models.Application
+@model YouthHub.ViewModels.ApplicationFormViewModel
 
 @{
     ViewData["Title"] = "Кандидатствай";
@@ -57,7 +57,5 @@
 </div>
 
 @section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
+    <partial name="_ValidationScriptsPartial" />
 }

@@ -1,5 +1,5 @@
 
-@model YouthHub.Models.Initiative
+@model YouthHub.ViewModels.InitiativeFormViewModel
 
 @{
     ViewData["Title"] = "Нова инициатива";
@@ -9,51 +9,73 @@
     <h1 class="mb-4">Създай инициатива</h1>
 
     <form asp-action="Create" method="post">
-        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+        <div asp-validation-summary="ModelOnly"
+             class="text-danger mb-3"></div>
 
         <div class="mb-3">
             <label asp-for="Title" class="form-label">Заглавие</label>
             <input asp-for="Title" class="form-control" />
-            <span asp-validation-for="Title" class="text-danger"></span>
+            <span asp-validation-for="Title"
+                  class="text-danger"></span>
         </div>
 
         <div class="mb-3">
             <label asp-for="Description" class="form-label">Описание</label>
-            <textarea asp-for="Description" class="form-control" rows="4"></textarea>
-            <span asp-validation-for="Description" class="text-danger"></span>
+            <textarea asp-for="Description"
+                      class="form-control"
+                      rows="4"></textarea>
+            <span asp-validation-for="Description"
+                  class="text-danger"></span>
         </div>
 
         <div class="mb-3">
             <label asp-for="Location" class="form-label">Място</label>
             <input asp-for="Location" class="form-control" />
-            <span asp-validation-for="Location" class="text-danger"></span>
-        </div>
-        
-<div class="mb-3">
-    <label asp-for="CategoryId" class="form-label">Категория</label>
-    <select asp-for="CategoryId"
-            asp-items="ViewBag.Categories"
-            class="form-select">
-        <option value="">-- Избери категория --</option>
-    </select>
-    <span asp-validation-for="CategoryId" class="text-danger"></span>
-</div>
-
-
-        <div class="mb-3">
-            <label asp-for="EventDate" class="form-label">Дата на събитието</label>
-            <input asp-for="EventDate" type="date" class="form-control" />
-            <span asp-validation-for="EventDate" class="text-danger"></span>
+            <span asp-validation-for="Location"
+                  class="text-danger"></span>
         </div>
 
         <div class="mb-3">
-            <label asp-for="Organizer" class="form-label">Организатор (незадължително)</label>
+            <label asp-for="CategoryId" class="form-label">
+                Категория
+            </label>
+            <select asp-for="CategoryId"
+                    asp-items="ViewBag.Categories"
+                    class="form-select">
+                <option value="">-- Избери категория --</option>
+            </select>
+            <span asp-validation-for="CategoryId"
+                  class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="EventDate" class="form-label">
+                Дата на събитието
+            </label>
+            <input asp-for="EventDate"
+                   type="date"
+                   class="form-control" />
+            <span asp-validation-for="EventDate"
+                  class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Organizer" class="form-label">
+                Организатор (незадължително)
+            </label>
             <input asp-for="Organizer" class="form-control" />
-            <span asp-validation-for="Organizer" class="text-danger"></span>
+            <span asp-validation-for="Organizer"
+                  class="text-danger"></span>
         </div>
 
-        <button type="submit" class="btn btn-success">Запази инициативата</button>
-        <a asp-action="Index" class="btn btn-outline-secondary ms-2">Отказ</a>
+        <button type="submit" class="btn btn-success">
+            Запази инициативата
+        </button>
+
+        <a asp-action="Index"
+           class="btn btn-outline-secondary ms-2">
+            Отказ
+        </a>
     </form>
 </div>
 
