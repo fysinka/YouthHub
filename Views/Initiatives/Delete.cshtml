@@ -4,6 +4,12 @@
 @{
     ViewData["Title"] = "Изтриване на инициатива";
 }
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @TempData["ErrorMessage"]
+    </div>
+}
 
 <div class="container py-5">
     <h1 class="mb-3">Изтриване на инициатива</h1>

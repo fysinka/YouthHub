@@ -117,15 +117,33 @@
             }
         </div>
     }
-    else
+       else
     {
-        <div class="yh-initiatives-empty">
-            <h2>Все още няма инициативи</h2>
-            <p>Създай първата инициатива и сподели идеята си.</p>
+        var hasFilters =
+            !string.IsNullOrWhiteSpace(ViewData["SearchString"]?.ToString())
+            || ViewData["CategoryId"] != null;
 
-            <a asp-action="Create" class="btn btn-primary">
-                Създай инициатива
-            </a>
+        <div class="yh-initiatives-empty">
+            @if (hasFilters)
+            {
+                <h2>Няма намерени инициативи</h2>
+                <p>
+                    Не открихме инициативи, които отговарят на зададеното търсене.
+                    Опитай с друга дума или избери друга категория.
+                </p>
+
+                <a asp-action="Index" class="btn btn-primary">
+                    Покажи всички инициативи
+                </a>
+            }
+            else
+            {
+                <h2>Все още няма инициативи</h2>
+                <p>Създай първата инициатива и сподели идеята си.</p>
+
+                <a asp-action="Create" class="btn btn-primary">
+                    Създай инициатива
+                </a>
+            }
         </div>
     }
-</div>
