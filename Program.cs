@@ -1,13 +1,15 @@
 using Microsoft.EntityFrameworkCore;
 using YouthHub.Data;
+using YouthHub.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(
         builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// Add services to the container.
+
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<IInitiativeService, InitiativeService>();
 
 var app = builder.Build();
 
